@@ -94,6 +94,10 @@ const dataSlice = createSlice({
       const employindex = state.employ.findIndex(
         (e) => e.name === action.payload.username,
       );
+      if (employindex === -1) {
+        console.error("Employee not found:", action.payload.username);
+        return;
+      }
       state.admincreatedindex.push(employindex);
 
       const newTaskIndex = state.employ[employindex].tasks.length;
