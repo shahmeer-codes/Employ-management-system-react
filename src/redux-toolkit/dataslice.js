@@ -68,6 +68,7 @@ const initialState = {
   admincreatedtaskindex: [],
   user: "Login",
   currentemployindex: null,
+  theme: "light",
 };
 
 const dataSlice = createSlice({
@@ -77,10 +78,12 @@ const dataSlice = createSlice({
     setlocaldata: (state) => {
       localStorage.setItem("admin", JSON.stringify(state.admin));
       localStorage.setItem("employ", JSON.stringify(state.employ));
+      localStorage.setItem("theme", state.theme);
     },
     getdata: (state) => {
       const adminData = localStorage.getItem("admin");
       const employData = localStorage.getItem("employ");
+      const themeData = localStorage.getItem("theme");
 
       if (adminData) {
         state.admin = JSON.parse(adminData);
@@ -89,6 +92,13 @@ const dataSlice = createSlice({
       if (employData) {
         state.employ = JSON.parse(employData);
       }
+
+      if (themeData) {
+        state.theme = themeData;
+      }
+    },
+    toggleTheme: (state) => {
+      state.theme = state.theme === "light" ? "dark" : "light";
     },
     createtask: (state, action) => {
       const employindex = state.employ.findIndex(
@@ -190,5 +200,6 @@ export const {
   taskaccepted,
   rejectedtask,
   completedtask,
+  toggleTheme,
 } = dataSlice.actions;
 export default dataSlice.reducer;
