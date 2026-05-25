@@ -1,16 +1,138 @@
-# React + Vite
+# Employee Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern project or Employee management system built with React and Redux Toolkit where admins can manage employees and assign tasks efficiently. Employees can track assigned tasks, update their progress, and mark tasks as completed. All application data is stored using Local Storage for persistent state management.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+### Admin Dashboard
+- View all employees
+- Assign tasks to employees
+- Track employee progress
+- Monitor completed and pending tasks
+- Manage task statuses
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Employee Dashboard
+- View assigned tasks
+- Accept tasks
+- Update task progress
+- Mark tasks as completed
+- Task cards for better UI experience
 
-## Expanding the ESLint configuration
+### General Features
+- Redux Toolkit state management
+- Persistent data using Local Storage
+- Responsive user interface
+- Reusable React components
+- Modern dashboard design
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+- React.js
+- Redux Toolkit
+- JavaScript
+- Tailwind CSS
+- Local Storage
+- Vite
+
+---
+
+## 📂 Folder Structure
+
+```bash
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── redux-toolkit/
+│   ├── assets/
+│   ├── App.jsx
+│   └── main.jsx
+├── public/
+├── package.json
+└── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/project-management-system.git
+```
+
+Move into the project directory:
+
+```bash
+cd project-management-system
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+---
+
+## 📋 Functionalities
+
+- Employee Task Management
+- Task Assignment System
+- Task Progress Tracking
+- Pending & Completed Task Counter
+- Employee Dashboard
+- Admin Dashboard
+- State Management with Redux
+- Persistent Storage with Local Storage
+
+---
+
+## 🌐 Deployment
+
+You can deploy this project on:
+
+- Vercel
+- Netlify
+- GitHub Pages
+
+---
+
+## 📈 Future Improvements
+
+- Authentication System
+- Role-Based Access
+- Real Database Integration
+- Notifications System
+- Due Dates & Reminders
+- Drag & Drop Task Board
+- Team Collaboration Features
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome.  
+Feel free to fork the repository and submit pull requests.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+Developed by Shahmeer Rana
