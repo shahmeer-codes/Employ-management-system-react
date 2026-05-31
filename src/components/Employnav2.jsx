@@ -60,26 +60,51 @@ const Employnav2 = () => {
   }
 
   // Original light UI layout (with stats spelling fix)
-  return (
-    <div className="flex justify-between m-10 text-left">
-      <div className="flex flex-col justify-between shadow-2xl text-blue-700 p-5 bg-blue-300 font-bold text-4xl h-35 w-fit min-w-50 rounded-2xl">
-        <h1>{user.totaltask}</h1>
-        <h1>New task</h1>
+ return (
+  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 px-6 md:px-12 mt-8 mb-6">
+    {[
+      {
+        value: user.totaltask,
+        label: "New Tasks",
+        colorClass: "text-indigo-600",
+        bgClass: "bg-indigo-50 border-indigo-200",
+      },
+      {
+        value: user.completedtask,
+        label: "Completed",
+        colorClass: "text-emerald-600",
+        bgClass: "bg-emerald-50 border-emerald-200",
+      },
+      {
+        value: user.acceptedtask,
+        label: "Accepted",
+        colorClass: "text-amber-600",
+        bgClass: "bg-amber-50 border-amber-200",
+      },
+      {
+        value: user.rejectedtask,
+        label: "Rejected",
+        colorClass: "text-rose-600",
+        bgClass: "bg-rose-50 border-rose-200",
+      },
+    ].map((stat, idx) => (
+      <div
+        key={idx}
+        className={`flex flex-col justify-between p-6 border rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${stat.bgClass}`}
+      >
+        <span
+          className={`text-4xl md:text-5xl font-black ${stat.colorClass}`}
+        >
+          {stat.value}
+        </span>
+
+        <span className="text-sm md:text-base font-semibold text-gray-600 mt-2">
+          {stat.label}
+        </span>
       </div>
-      <div className="flex flex-col justify-between p-5 shadow-2xl text-green-700 bg-green-300 font-bold text-4xl h-35 w-fit min-w-70 rounded-2xl">
-        <h1>{user.completedtask}</h1>
-        <h1>Completed</h1>
-      </div>
-      <div className="flex flex-col justify-between p-5 shadow-2xl text-yellow-700 bg-yellow-300 font-bold text-4xl h-35 w-fit min-w-50 rounded-2xl">
-        <h1>{user.acceptedtask}</h1>
-        <h1>Accepted </h1>
-      </div>
-      <div className="flex flex-col justify-between p-5 shadow-2xl text-red-700 bg-red-300 font-bold text-4xl h-35 w-fit min-w-50 rounded-2xl">
-        <h1>{user.rejectedtask}</h1>
-        <h1>Rejected</h1>
-      </div>
-    </div>
-  );
+    ))}
+  </div>
+);
 };
 
 export default Employnav2;

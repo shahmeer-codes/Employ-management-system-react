@@ -7,34 +7,47 @@ import Cards from "../components/Cards";
 const Employ = () => {
   const theme = useSelector((state) => state.store.theme);
 
-  if (theme === "dark") {
-    return (
-      <div className="w-full min-h-screen bg-slate-950 font-sans text-white pb-12">
-        <Employnav />
-        <div className="pt-24 max-w-7xl mx-auto flex flex-col gap-4">
-          <Employnav2 />
-          <div className="px-6 md:px-12 py-4">
-            <h2 className="text-2xl font-bold text-white tracking-tight mb-6">Your Tasks</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Cards />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Original light UI layout (with original classes: bg-white, pt-25, cards container w-370 h-110, overflow-x-auto, bg-gray-300, rounded-4xl)
   return (
-    <div className="w-full h-screen bg-white">
+    <div
+      className={`w-full min-h-screen font-sans pb-12 transition-all duration-300 ${
+        theme === "dark"
+          ? "bg-slate-950 text-white"
+          : "bg-slate-50 text-slate-900"
+      }`}
+    >
       <Employnav />
-      <div className="pt-25">
+
+      <div className="pt-24 max-w-7xl mx-auto flex flex-col gap-4">
         <Employnav2 />
-        <div className="flex justify-center items-center">
-          <div
-            id="cards"
-            className="flex bg-gray-300 mb-30 w-370 h-110 rounded-4xl gap-6 overflow-x-auto scrollbar-hide"
-          >
+
+        <div className="px-6 md:px-12 py-4">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2
+                className={`text-3xl font-bold tracking-tight ${
+                  theme === "dark"
+                    ? "text-white"
+                    : "text-slate-900"
+                }`}
+              >
+                Your Tasks
+              </h2>
+
+              <p
+                className={`mt-1 text-sm ${
+                  theme === "dark"
+                    ? "text-slate-400"
+                    : "text-slate-500"
+                }`}
+              >
+                Manage and track your assigned tasks.
+              </p>
+            </div>
+
+            
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             <Cards />
           </div>
         </div>

@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { authcheck } from "../redux-toolkit/dataslice";
 
 const Login = () => {
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
   const dispatch = useDispatch();
-  const theme = useSelector((state) => state.store.theme);
 
-  if (theme === "dark") {
-    // Premium dark theme
     return (
       <div className="h-screen w-screen flex justify-center items-center p-4 bg-slate-950 overflow-hidden relative font-sans text-white">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-500/10 blur-[120px] pointer-events-none"></div>
@@ -82,47 +79,5 @@ const Login = () => {
       </div>
     );
   }
-
-  // Original UI theme
-  return (
-    <div className="h-screen w-screen flex justify-center items-center p-5 text-white bg-blue-950 font-bold">
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          dispatch(authcheck({ username, password }));
-          setusername("");
-          setpassword("");
-        }}
-        className="flex flex-col justify-center h-120 w-120 shadow-white shadow-2xl text-2xl gap-5 rounded-2xl bg-blue-800 items-center"
-      >
-        <h1 className="text-5xl mb-10">Login</h1>
-        <input
-          value={username}
-          type="email"
-          placeholder="Enter your Email"
-          className="bg-white text-black p-2 rounded-2xl border-2 border-amber-600"
-          onChange={(e) => {
-            setusername(e.target.value);
-          }}
-          required
-        />
-        <input
-          value={password}
-          type="password"
-          placeholder="Enter your password"
-          className="bg-white text-black p-2 rounded-2xl"
-          autoComplete="current-password"
-          onChange={(e) => {
-            setpassword(e.target.value);
-          }}
-          required
-        />
-        <button className="bg-black text-white h-12 w-70 active:scale-95 rounded-2xl cursor-pointer">
-          login
-        </button>
-      </form>
-    </div>
-  );
-};
 
 export default Login;
